@@ -1,0 +1,130 @@
+.container-info{
+  margin: 0;
+  padding: 0;
+  background-color: #454546
+}
+.container-storage{
+  margin: 0;
+  padding: 0;
+  background-color: #454546;
+}
+.box_img {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  min-height: 1em;
+  border: black solid;
+
+
+  position: absolute;
+}
+
+.box_img:hover {
+  z-index: 5;
+
+}
+
+.box_img2:hover > img {
+  background-color: aqua;
+  width: 8em;
+  height: 5em;
+
+}
+
+.box_info {
+  background-color: darkgray;
+  border: darkgray;
+  text-align: left;
+  border-radius: 5px;
+  font-size: 11px;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: none;
+  opacity: 0;
+}
+
+.box_img2:active > .box_info {
+  /*visibility: visible;*/
+  display: block;
+
+  transition: 1s linear;
+  opacity: 1;
+}
+
+/*.box_img p{*/
+
+/*  opacity: 0;*/
+/*  transition: opacity 1s linear;*/
+/*}*/
+/*.box_img p:hover{*/
+
+/*  opacity: 1;*/
+/*}*/
+.rectangle {
+
+  position: absolute;
+  left: 70px;
+
+
+  z-index: -1;
+  background-color: darkgray;
+}
+.rectangle1 {
+  position: absolute;
+  left: 70px;
+  width: 600px;
+  height: 9px;
+  top: 340px;
+  background-color: darkgray;
+}
+.rectangle .one{
+  width: 600px;
+  height: 9px;
+  top: 340px;
+}
+.rectangle .two{
+  width: 600px;
+  height: 9px;
+  top: 350px;
+}
+.item1{grid-area: item1; border: solid gray;}
+.item2{grid-area: item2; border: solid gray;}
+.item2 input{
+  margin: 1rem 1rem 1rem 1rem;
+}
+.item2 button{
+  margin: 1rem 1rem 1rem 1rem;
+}
+.container{
+  display: grid;
+  grid-template-areas: 'item1 item2';
+}
+
+.car{
+  position: absolute;
+  /*left:120px;*/
+  width: 60px;
+  height: 37px;
+  background-color: orangered;
+  border: solid black;
+  z-index: 5;
+
+}
+.car img{
+  margin: 2px 2px 2px 2px;
+  position: center;
+  z-index: 7;
+}
+.car2{
+  position: absolute;
+  width: 60px;
+  height: 37px;
+  background-color: orangered;
+  border: solid black;
+  z-index: 5;
+}
+.car2 img{
+  margin: 2px 2px 2px 2px;
+  position: center;
+  z-index: 7;
+}

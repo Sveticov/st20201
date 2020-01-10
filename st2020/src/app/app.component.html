@@ -1,0 +1,80 @@
+<div class="container-info">
+  <div class="container">
+    <div class="item1">
+      <p>{{title}}</p>
+      <p>Z Position: {{positionCar.z_position}}</p>
+      <p>X position: {{positionCar.x_position}}</p>
+    </div>
+    <div class="item2">
+      <input type="text" [(ngModel)]="x_start_position" value="{{x_start_position}}">
+      <input type="text" [(ngModel)]="z_start_position" value="{{z_start_position}}">
+      <button (click)="setStartPositionX()">Send</button>
+      <button (click)="resetCount()">Reset</button>
+      <button (click)="addModelNew()">Add Box</button>
+      <label for="oneCar">Car 1</label>
+      <input type="checkbox" id="oneCar" (change)="carOneWithBoardSTATE()">
+      <label for="twoCar">Car 2</label>
+      <input type="checkbox" id="twoCar" (change)="carTwoWithBoardSTATE()">
+    </div>
+  </div>
+</div>
+
+<div class="container-storage">
+  <div class="car" [ngStyle]="{'top':positionCar.x_position,'left':'70px' }">
+  </div>
+
+  <div class="car" [ngStyle]="{'top':positionCar.x_position , 'left':positionCar.z_position}">
+    <div *ngIf="carOneWithBoard">
+      <img src="../assets/box_boards.jpg" height="30" width="55"/>
+    </div>
+  </div>
+
+
+  <!--  <div class="car" [ngStyle]="{'top':positionCarTwo.x_position,'left':'700px' }">-->
+  <!--  </div>-->
+  <!--&lt;!&ndash;  <div *ngIf="carTwoWithBoard">&ndash;&gt;-->
+  <!--    <div class="car" [ngStyle]="{'top':positionCarTwo.x_position , 'left':positionCarTwo.z_position}">-->
+  <!--      <img src="../assets/box_boards.jpg" height="30" width="55"/>-->
+  <!--    </div>-->
+  <!--&lt;!&ndash;  </div>&ndash;&gt;-->
+
+
+<!--  <div class="rectangle">-->
+<!--    <div class="rectangle one"></div>-->
+<!--    &lt;!&ndash;  <div class="rectangle two"></div>&ndash;&gt;-->
+<!--  </div>-->
+<!--  <div class="rectangle">-->
+<!--    <div class="rectangle one" style="top: 400px"></div>-->
+<!--    &lt;!&ndash;  <div class="rectangle two" style="top: 410px"></div>&ndash;&gt;-->
+<!--  </div>-->
+
+
+  <div *ngFor="let model of modelsBoxes">
+    <div class="box_img" [ngStyle]="{'top':model.positionTop,'left':model.positionLeft}">
+
+      <div class="box_img2">
+        <div class="box_info">
+          <p>{{model|json}}</p>
+          <!--        <p>id: {{model.idBox}}</p>-->
+          <!--        <p>name: {{model.nameBox}}</p>-->
+          <!--        <p>thickness: {{model.sizeModelBox.thickness}}</p>-->
+          <!--        <p>height: {{model.sizeModelBox.height}}</p>-->
+          <!--        <p>width: {{model.sizeModelBox.width}}</p>-->
+        </div>
+        <img src="../assets/box_boards.jpg" height="30" width="55"/>
+        <!--      <img src="../assets/unicorn-box-500x500.png" height="50" width="50"/>-->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="car2" [ngStyle]="{'top':'550px','left':'700px' }">
+  </div>
+  <div class="car2" [ngStyle]="{'top':'550px' , 'left':'700px'}">
+    <div *ngIf="carTwoWithBoard">
+      <img src="../assets/box_boards.jpg" height="30" width="55"/>
+    </div>
+  </div>
+
+
+<router-outlet></router-outlet>
