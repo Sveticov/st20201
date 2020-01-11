@@ -2,40 +2,39 @@ package com.sveticov.st2020.car_service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-@Slf4j
 @Service
-@Qualifier("car1")
-public class CarSimulator implements SimulatorCarDirection {
-    private int z_position_last = 0;
+@Qualifier("car2")
+@Slf4j
+public class CarSimulator2 implements SimulatorCarDirection {
+    private int z_position_last = 700;
     private int x_position_last = 25;
-   private boolean lock;
-
+    private boolean lock;
+@Override
     public PositionCar direction(int z_position, int x_position) {
         synchronized (this) {
             if (x_position_last < x_position) {
-                if (z_position_last == 70) {
+                if (z_position_last == 700) {
 //                    log.info(x_position_last + " < " + x_position);
                     x_position_last = x_position_last + 5;
                     lock=false;
                 }
-                if(z_position_last!=70){
-                    z_position=70;
+                if(z_position_last!=700){
+                    z_position=700;
                     lock=true;
                 }
             }
         }
         synchronized (this) {
             if (x_position_last > x_position) {
-                if (z_position_last == 70) {
+                if (z_position_last == 700) {
 //                    log.info(x_position_last + " > " + x_position);
                     x_position_last = x_position_last - 5;
                     lock=false;
                 }
-                if(z_position_last!=70){
-                    z_position=70;
+                if(z_position_last!=700){
+                    z_position=700;
                     lock=true;
                 }
             }
@@ -63,11 +62,13 @@ public class CarSimulator implements SimulatorCarDirection {
 
     @Override
     public int get_x() {
-        return 0;
+        return this.x_position_last;
     }
 
     @Override
     public int get_z() {
-        return 0;
+        return this.z_position_last;
     }
+
+
 }

@@ -9,8 +9,12 @@
       <input type="text" [(ngModel)]="x_start_position" value="{{x_start_position}}">
       <input type="text" [(ngModel)]="z_start_position" value="{{z_start_position}}">
       <button (click)="setStartPositionX()">Send</button>
+      <input type="text" [(ngModel)]="x_start_position2" value="{{x_start_position2}}">
+      <input type="text" [(ngModel)]="z_start_position2" value="{{z_start_position2}}">
+      <button (click)="setStartPositionX2()">Send2</button>
       <button (click)="resetCount()">Reset</button>
       <button (click)="addModelNew()">Add Box</button>
+      <button (click)="getModelNew()">Get Box</button>
       <label for="oneCar">Car 1</label>
       <input type="checkbox" id="oneCar" (change)="carOneWithBoardSTATE()">
       <label for="twoCar">Car 2</label>
@@ -68,9 +72,9 @@
   </div>
 
 
-  <div class="car2" [ngStyle]="{'top':'550px','left':'700px' }">
+  <div class="car2" [ngStyle]="{'top':positionCarTwo.x_position,'left':'700px' }">
   </div>
-  <div class="car2" [ngStyle]="{'top':'550px' , 'left':'700px'}">
+  <div class="car2" [ngStyle]="{'top':positionCarTwo.x_position , 'left':positionCarTwo.z_position}">
     <div *ngIf="carTwoWithBoard">
       <img src="../assets/box_boards.jpg" height="30" width="55"/>
     </div>

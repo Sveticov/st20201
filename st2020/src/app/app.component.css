@@ -17,10 +17,14 @@
 
 
   position: absolute;
+
+}
+.box_img{
+  z-index: 7;
 }
 
 .box_img:hover {
-  z-index: 5;
+  z-index: 8;
 
 }
 
@@ -50,6 +54,7 @@
   transition: 1s linear;
   opacity: 1;
 }
+
 
 /*.box_img p{*/
 
@@ -107,13 +112,13 @@
   height: 37px;
   background-color: orangered;
   border: solid black;
-  z-index: 5;
+  z-index: 4;
 
 }
 .car img{
   margin: 2px 2px 2px 2px;
   position: center;
-  z-index: 7;
+  z-index: 6;
 }
 .car2{
   position: absolute;
@@ -121,10 +126,10 @@
   height: 37px;
   background-color: orangered;
   border: solid black;
-  z-index: 5;
+  z-index: 4;
 }
 .car2 img{
   margin: 2px 2px 2px 2px;
   position: center;
-  z-index: 7;
+  z-index: 6;
 }

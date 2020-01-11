@@ -36,6 +36,10 @@ public class ServiceModelBox implements ServiceSvetikov<ModelBox> {
 
     }
 
+    @Override
+    public void delete(int id) {
+
+    }
 
 
     public void init(List<ModelBox> modelBoxes){

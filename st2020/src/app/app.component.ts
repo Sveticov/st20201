@@ -21,6 +21,8 @@ export class AppComponent implements OnInit {
   z_start_position: number = 70;
   positionCar: PositionCar
   positionCarTwo: PositionCar;
+  x_start_position2: number = 200;
+  z_start_position2: number = 70;
   carOneWithBoard: boolean
   carTwoWithBoard: boolean
 
@@ -30,9 +32,13 @@ export class AppComponent implements OnInit {
     this.getDirectionCar(this.z_start_position, this.x_start_position).subscribe(car => {
       this.positionCar = car
     })
-    // this.positionCarTwo.x_position='700px'
-    // this.positionCarTwo.z_position='400px'
+
+    this.getDirectionCar2(this.z_start_position2, this.x_start_position2).subscribe(car => {
+      this.positionCarTwo = car
+    })
+
   }
+
 
 
   ngOnInit(): void {
@@ -42,6 +48,10 @@ export class AppComponent implements OnInit {
     interval(3000).subscribe(
       x => this.getAllModel().subscribe(models => this.modelsBoxes = models.valueOf())
     )
+
+    // interval(1000).subscribe(
+    //   x=>
+    // )
 
 
   }
@@ -59,6 +69,9 @@ export class AppComponent implements OnInit {
   getDirectionCar(z: number, x: number): Observable<any> {
     return this.http.get(this.host + 'car/' + z + '/' + x)
   }
+  getDirectionCar2(z: number, x: number): Observable<any> {
+    return this.http.get(this.host + 'car2/' + z + '/' + x)
+  }
 
   count = 0
   x_direction: string;
@@ -69,6 +82,13 @@ export class AppComponent implements OnInit {
     interval(200).subscribe(x =>
       this.getDirectionCar(this.z_start_position, this.x_start_position).subscribe(car => {
         this.positionCar = car
+      })
+    )
+  }
+  setStartPositionX2() {
+    interval(200).subscribe(x =>
+      this.getDirectionCar2(this.z_start_position2, this.x_start_position2).subscribe(car => {
+        this.positionCarTwo = car
       })
     )
   }
@@ -86,6 +106,9 @@ export class AppComponent implements OnInit {
     this.z_start_position = 70
     this.carOneWithBoard=false
   }
+
+
+
 
 
   resetCount() {
@@ -106,5 +129,15 @@ export class AppComponent implements OnInit {
     if (this.carTwoWithBoard != true)
       this.carTwoWithBoard = true
     else this.carTwoWithBoard = false
+  }
+
+
+  private deleteBoardUnderCar2():Observable<any>{
+  return   this.http.get(this.host+'car2/found/board')
+  }
+
+  getModelNew() {
+    this.deleteBoardUnderCar2().subscribe(board=>this.carTwoWithBoard=board.valueOf())
+    this.z_start_position2 = 700
   }
 }

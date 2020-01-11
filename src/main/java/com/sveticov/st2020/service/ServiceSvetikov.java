@@ -10,6 +10,7 @@ public interface ServiceSvetikov<T> {
     List<T> findAll();
 
     void show();
+    void delete(int id);
 
 
 }

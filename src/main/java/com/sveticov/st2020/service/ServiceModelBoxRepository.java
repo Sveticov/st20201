@@ -64,5 +64,10 @@ public class ServiceModelBoxRepository implements ServiceSvetikov<ModelBox> {
 //        repositorySizeModelBox.findAll().forEach(System.out::println);
     }
 
+    @Override
+    public void delete(int id) {
+        repositoryModelBox.deleteById(id);
+    }
+
 
 }
